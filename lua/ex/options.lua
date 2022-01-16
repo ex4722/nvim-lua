@@ -20,7 +20,7 @@ local options = {
    swapfile = false,
 
    undofile = true,
-   undodir = "/home/ex4722/.config/nvim/undodir",
+   undodir = "~/.config/nvim/undodir",
    signcolumn = "yes",
    --
    ignorecase = true,
