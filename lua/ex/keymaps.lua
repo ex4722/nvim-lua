@@ -6,6 +6,7 @@ local k = vim.api.nvim_set_keymap
 -- Leader key stuff
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
+
 k("n", "<leader><cr>", ":noh<cr>", conf)
 k("n", "<leader>q", ":q!<cr>", conf)
 k("n", "<leader>x", ":x<cr>", conf)
@@ -71,7 +72,17 @@ k("n", "<C-e>", ":NvimTreeToggle<CR>", conf)
 -- HARPOOOON
 k("n", "ha", ":lua require('harpoon.mark').add_file()<CR>", conf)
 k("n", "H", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", conf)
+
+k("n", "<space>f", ":lua require('harpoon.ui').nav_file(1)<CR>", conf)
+k("n", "<space>d", ":lua require('harpoon.ui').nav_file(2)<CR>", conf)
+k("n", "<space>s", ":lua require('harpoon.ui').nav_file(3)<CR>", conf)
+k("n", "<space>a", ":lua require('harpoon.ui').nav_file(4)<CR>", conf)
 -- k("n", "H", ":Telescope harpoon marks<CR>", conf)
-k("n", "<tab>", ":lua require('harpoon.ui').nav_next()<CR>", conf)
+-- k("n", "<tab>", ":lua require('harpoon.ui').nav_next()<CR>", conf)
+
+k("n", "<tab>", ":TablineBufferNext<CR>", conf)
+
+
+
 
 

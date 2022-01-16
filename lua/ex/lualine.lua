@@ -32,4 +32,3 @@ lualine.setup {
     tabline = {},
     extensions = {'fugitive'}
 }
--- vim.api.nvim_set_keymap ("n", "<tab>", ":TablineBufferNext<CR>", { noremap = true, silent = true })
