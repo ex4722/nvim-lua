@@ -74,6 +74,8 @@ return packer.startup(function(use)
     -- Formatters 
     -- use {'averms/black-nvim', run = ':UpdateRemotePlugins'  } 
     use 'lukas-reineke/indent-blankline.nvim'
+    use 'euclio/vim-markdown-composer'
+
 
     -- Git 
     use 'tpope/vim-fugitive'
@@ -82,7 +84,7 @@ return packer.startup(function(use)
     -- Telly 
     use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
     use 'nvim-telescope/telescope-media-files.nvim'
-   use'ThePrimeagen/harpoon'
+    use'ThePrimeagen/harpoon'
 
     -- Trees
     use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate",}
@@ -91,11 +93,7 @@ return packer.startup(function(use)
 
 
     -- Pretty 
-
-    use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = false}
-    }
+    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = false} }
     use 'ryanoasis/vim-devicons'
     use 'kdheepak/tabline.nvim'
     use {'nvim-orgmode/orgmode', config = function()
