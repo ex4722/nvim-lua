@@ -105,6 +105,6 @@ return packer.startup(function(use)
 
 
     if PACKER_BOOTSTRAP then
-        require("packer").sync()    
+       require("packer").sync()    
     end
 end)
