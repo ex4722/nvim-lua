@@ -11,9 +11,9 @@ require'nvim-treesitter.configs'.setup {
 	-- Instead of true it can also be a list of languages
 	additional_vim_regex_highlighting = true,
     },
-    indent = { 
+    indent = {
 	enable = true,
-	disable = { 'python', 'lua', 'java'},
+	disable = { 'javascript','python', 'lua', 'java'},
     },
     rainbow = {
 	enable = true,

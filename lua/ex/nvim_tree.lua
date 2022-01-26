@@ -110,3 +110,7 @@ nvim_tree.setup {
         tree_width = 30,
     },
 }
+
+
+vim.cmd('highlight VertSplit guibg=#002b36')
+-- vim.cmd('set fillchars+=vert:\')

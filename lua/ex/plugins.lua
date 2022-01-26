@@ -64,6 +64,7 @@ return packer.startup(function(use)
     -- use 'windwp/nvim-autopairs'
     -- use 'jiangmiao/auto-pairs'
     -- use 'rstacruz/vim-closer'
+    use 'mattn/emmet-vim'
 
     -- LSP
     use 'neovim/nvim-lspconfig'
