@@ -8,7 +8,7 @@ telescope.setup{
         prompt_prefix = " ",
         selection_caret = " ",
         path_display = { "smart" },
-        file_ignore_patterns = {".*_virt/.*", "*env*", "*undo*"},
+        file_ignore_patterns = {".*_virt/.*", ".*__pycache__/.*" , "*env*", "*undo*"},
         mappings = {
             n = {
                 ["q"] = actions.close,
