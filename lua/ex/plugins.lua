@@ -1,5 +1,4 @@
 local fn = vim.fn
---
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -44,13 +43,13 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim"
     use "wbthomason/packer.nvim"
     use "lifepillar/vim-solarized8"
-    use "rstacruz/vim-closer"
 
     -- Code Shortcuts
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
     use 'mbbill/undotree'
     use 'tpope/vim-commentary'
-    use 'tpope/vim-surround'
+    -- use 'tpope/vim-surround'
+    use "machakann/vim-sandwich"
 
     -- AutoComplete and Snips
     use "hrsh7th/nvim-cmp"
@@ -61,9 +60,12 @@ return packer.startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
     use 'rafamadriz/friendly-snippets'
-    -- use 'windwp/nvim-autopairs'
+
+
+    use 'windwp/nvim-autopairs'
     -- use 'jiangmiao/auto-pairs'
     -- use 'rstacruz/vim-closer'
+
     use 'mattn/emmet-vim'
 
     -- LSP
@@ -101,10 +103,11 @@ return packer.startup(function(use)
         require('orgmode').setup{}
     end }
 
-    use 'kyazdani42/nvim-tree.lua'
-
-
+    -- use { 'kyazdani42/nvim-tree.lua', commit = "2dfed89af7724f9e71d2fdbe3cde791a93e9b9e0"}
+    use { 'kyazdani42/nvim-tree.lua',}
+    -- FUNNNN
     if PACKER_BOOTSTRAP then
-       require("packer").sync()    
+       require("packer").sync()
     end
 end)
+
