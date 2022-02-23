@@ -2,6 +2,15 @@ local actions = require "telescope.actions"
 local telescope = require('telescope')
 telescope.load_extension('media_files')
 telescope.load_extension('harpoon')
+telescope.load_extension('git_worktree')
+
+require("git-worktree").setup({
+    -- change_directory_command = <str> -- default: "cd",
+    -- update_on_change = <boolean> -- default: true,
+    -- update_on_change_command = <str> -- default: "e .",
+    -- clearjumps_on_change = <boolean> -- default: true,
+    -- autopush = <boolean> -- default: false,
+})
 
 telescope.setup{
     defaults = {

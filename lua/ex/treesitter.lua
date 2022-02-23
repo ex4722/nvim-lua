@@ -12,8 +12,11 @@ require'nvim-treesitter.configs'.setup {
 	additional_vim_regex_highlighting = true,
     },
     indent = {
-	enable = false,
-	disable = { 'javascript','python', 'lua', 'java'},
+	enable = true,
+	disable = {},
+    },
+    autopair = {
+        enable = true,
     },
     rainbow = {
 	enable = true,
@@ -24,4 +27,3 @@ require'nvim-treesitter.configs'.setup {
 	-- termcolors = {} -- table of colour name strings
     }
 }
-

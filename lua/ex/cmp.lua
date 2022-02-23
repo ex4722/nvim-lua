@@ -7,6 +7,11 @@ local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
     return
 end
+local types = require('luasnip.util.types')
+luasnip.config.set_config{
+    history = true,
+    updateevents = "TextChanged,TextChangedI",
+}
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -62,93 +67,72 @@ cmp.setup {
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         },
-        -- Accept currently selected item. If none selected, `select` first item.
-        -- Set `select` to `false` to only confirm explicitly selected items.
-        -- ["<CR>"] = cmp.mapping.confirm { select = true },
 
         ["<CR>"] = cmp.mapping(function(fallback)
             if luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             elseif cmp.visible() then
-                cmp.mapping.confirm()
+                cmp.mapping.confirm({select = true})
             else
                 fallback()
             end
-        end, {
-        "i",
-        "s",
-    }),
+        end, { "i", "s", }),
 
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expandable() then
+                luasnip.expand()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            elseif check_backspace() then
+                fallback()
+            else
+                fallback()
+            end
+        end, { "i", "s", }),
 
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s", }), },
 
-
-    ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            -- Tab down
-            cmp.select_next_item()
-        elseif luasnip.expandable() then
-            --  NO CLUE
-            luasnip.expand()
-        elseif luasnip.expand_or_jumpable() then
-            -- USE SNIPS
-            luasnip.expand_or_jump()
-        elseif check_backspace() then
-            fallback()
-        else
-            fallback()
-        end
-    end, {
-
-    "i",
-    "s",
-}),
-
-["<S-Tab>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-        cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-    else
-        fallback()
-    end
-end, {
-"i",
-"s",
-    }),
-},
-formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
-        -- Kind icons
-        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-        -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-        vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-        })[entry.source.name]
-        return vim_item
-    end,
-},
-sources = {
-    { name = "orgmode"},
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
+    formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+            -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+            vim_item.menu = ({
+                nvim_lsp = "[LSP]",
+                luasnip = "[Snippet]",
+                buffer = "[Buffer]",
+                path = "[Path]",
+            })[entry.source.name]
+            return vim_item
+        end,
+    },
+    sources = {
+        -- { name = "orgmode"},
     { name = "path" },
-    { name = "orgmode" },
-},
-confirm_opts = {
-    behavior = cmp.ConfirmBehavior.Replace,
-    select = false,
-},
-documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-},
-experimental = {
-    ghost_text = false,
-    native_menu = false,
-},
+    { name = "luasnip" },
+    { name = "nvim_lsp" },
+    { name = "buffer" },
+    },
+    confirm_opts = {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+    },
+    documentation = {
+        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
+    experimental = {
+        ghost_text = false,
+        native_menu = false,
+    },
 }
-

@@ -1,5 +1,4 @@
 local fn = vim.fn
---
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -30,11 +29,11 @@ if not status_ok then
 end
 
 packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
+    display = {
+        open_fn = function()
+            return require("packer.util").float { border = "rounded" }
+        end,
+    },
 }
 
 -- Install your plugins here
@@ -44,13 +43,13 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim"
     use "wbthomason/packer.nvim"
     use "lifepillar/vim-solarized8"
-    use "rstacruz/vim-closer"
 
     -- Code Shortcuts
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
     use 'mbbill/undotree'
     use 'tpope/vim-commentary'
-    use 'tpope/vim-surround'
+    -- use 'tpope/vim-surround'
+    use "machakann/vim-sandwich"
 
     -- AutoComplete and Snips
     use "hrsh7th/nvim-cmp"
@@ -61,9 +60,12 @@ return packer.startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
     use 'rafamadriz/friendly-snippets'
-    -- use 'windwp/nvim-autopairs'
+
+
+    use 'windwp/nvim-autopairs'
     -- use 'jiangmiao/auto-pairs'
     -- use 'rstacruz/vim-closer'
+
     use 'mattn/emmet-vim'
 
     -- LSP
@@ -71,6 +73,7 @@ return packer.startup(function(use)
     use 'williamboman/nvim-lsp-installer'
     use 'tami5/lspsaga.nvim'
     use 'jose-elias-alvarez/null-ls.nvim'
+    use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
     -- Formatters 
     -- use {'averms/black-nvim', run = ':UpdateRemotePlugins'  } 
@@ -81,6 +84,8 @@ return packer.startup(function(use)
     -- Git 
     use 'tpope/vim-fugitive'
     use 'lewis6991/gitsigns.nvim'
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+    use 'ThePrimeagen/git-worktree.nvim'
 
     -- Telly 
     use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
@@ -100,11 +105,16 @@ return packer.startup(function(use)
     use {'nvim-orgmode/orgmode', config = function()
         require('orgmode').setup{}
     end }
+    use {
+        "folke/which-key.nvim",
+    }
+    use 'ray-x/lsp_signature.nvim'
 
-    use 'kyazdani42/nvim-tree.lua'
-
-
+    -- use { 'kyazdani42/nvim-tree.lua', commit = "2dfed89af7724f9e71d2fdbe3cde791a93e9b9e0"}
+    use { 'kyazdani42/nvim-tree.lua',}
+    -- FUNNNN
     if PACKER_BOOTSTRAP then
-       require("packer").sync()    
+        require("packer").sync()
     end
 end)
+

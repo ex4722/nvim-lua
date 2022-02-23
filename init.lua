@@ -15,7 +15,10 @@ require "ex.cmp"
 
 require "ex.indent_line"
 require "ex.tabline"
-require "ex.short"
-require "ex.orgmode"
+-- require "ex.short"
+-- require "ex.orgmode"
 require "ex.gitsign"
 require "ex.nvim_tree"
+
+
+require "ex.which"

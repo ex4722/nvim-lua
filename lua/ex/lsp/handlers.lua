@@ -68,15 +68,17 @@ local function lsp_keymaps(bufnr)
     local k = vim.api.nvim_buf_set_keymap
     k(bufnr, "n", "gr", "<cmd>Lspsaga rename<cr>", opts)
     k(bufnr, "n", "<C-k>", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
+    k(bufnr, "n", "K", "<Cmd>Lspsaga signature_help<CR>", opts)
+    k(bufnr, "n", "gh", "<Cmd>Lspsaga lsp_finder<CR>", opts)
+    k(bufnr, "n", "ga", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
+    k( bufnr, "n", "gl", "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", opts)
+
 
     k(bufnr, "n", "<C-n>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)", opts)
     k(bufnr, "n", "<C-m>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
 
 
 
-    k(bufnr, "n", "K", "<Cmd>Lspsaga signature_help<CR>", opts)
-    k(bufnr, "n", "gh", "<Cmd>Lspsaga lsp_finder<CR>", opts)
-    k(bufnr, "n", "ga", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
 
 
     k(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -88,7 +90,6 @@ local function lsp_keymaps(bufnr)
 
 
     k(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-    k( bufnr, "n", "gl", "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", opts)
     k(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 
@@ -97,13 +98,23 @@ local function lsp_keymaps(bufnr)
 
 end
 
-
+vim.cmd('hi LspSagaFinderSelection guifg=#d33682')
+vim.cmd('hi FloatBorder guifg=#b3deef')
+vim.cmd('hi NormalFloat guibg=#002b36 guifg=#268bd2')
 
 M.on_attach = function(client, bufnr)
     if client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
     end
     lsp_keymaps(bufnr)
+    require "lsp_signature".on_attach({
+        hi_parameter = "LspSagaFinderSelection",
+        floating_window_off_x = -10,
+        bind = true,
+        handler_opts = {
+        border = "rounded"
+      }
+    }, bufnr)
     lsp_highlight_document(client)
 end
 

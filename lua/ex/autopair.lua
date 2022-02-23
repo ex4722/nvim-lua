@@ -12,7 +12,7 @@ npairs.setup {
   },
   disable_filetype = { "TelescopePrompt", "spectre_panel" },
   fast_wrap = {
-    map = "<M-e>",
+    map = "<M-p>",
     chars = { "{", "[", "(", '"', "'" },
     pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
     offset = 0, -- Offset from pattern match
@@ -24,8 +24,14 @@ npairs.setup {
   },
 }
 
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+-- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+-- local cmp = require('cmp')
+-- cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+-- cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
-cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
+local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+  return
+end
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
