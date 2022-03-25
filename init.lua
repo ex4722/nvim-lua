@@ -22,3 +22,5 @@ require "ex.nvim_tree"
 
 
 require "ex.which"
+require "ex.neogit"
+-- Heres a change
