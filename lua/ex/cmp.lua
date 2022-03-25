@@ -92,6 +92,8 @@ cmp.setup {
             end
         end, { "i", "s", }),
 
+
+
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -100,8 +102,11 @@ cmp.setup {
             else
                 fallback()
             end
-        end, { "i", "s", }), },
-
+        end, {
+                "i",
+                "s",
+            }),
+    },
     formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
