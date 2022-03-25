@@ -32,3 +32,5 @@ local options = {
 for opt, value in pairs(options) do
     vim.opt[opt] = value
 end
+
+vim.cmd("au TextYankPost * silent! lua vim.highlight.on_yank()")
