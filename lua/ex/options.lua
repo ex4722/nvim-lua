@@ -27,6 +27,7 @@ local options = {
     incsearch = true,
     expandtab = true,
     guicursor = '',
+    cmdheight=0,
 
 }
 for opt, value in pairs(options) do
