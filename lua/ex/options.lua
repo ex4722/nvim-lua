@@ -34,3 +34,4 @@ for opt, value in pairs(options) do
 end
 
 vim.cmd("au TextYankPost * silent! lua vim.highlight.on_yank()")
+vim.wo.fillchars='eob: '

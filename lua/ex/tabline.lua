@@ -1,4 +1,3 @@
-
 require'tabline'.setup {
     -- Defaults configuration options
     enable = true,

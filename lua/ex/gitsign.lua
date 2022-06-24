@@ -17,16 +17,17 @@ require('gitsigns').setup {
         ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'"},
         ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'"},
 
-        ['n ggs'] = '<cmd>Gitsigns stage_hunk<CR>',
-        ['v ggs'] = ':Gitsigns stage_hunk<CR>',
-        ['n ggu'] = '<cmd>Gitsigns undo_stage_hunk<CR>',
-        ['n ggr'] = '<cmd>Gitsigns reset_hunk<CR>',
-        ['v ggr'] = ':Gitsigns reset_hunk<CR>',
-        ['n ggR'] = '<cmd>Gitsigns reset_buffer<CR>',
-        ['n ggp'] = '<cmd>Gitsigns preview_hunk<CR>',
-        ['n ggb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
-        ['n ggS'] = '<cmd>Gitsigns stage_buffer<CR>',
-        ['n ggU'] = '<cmd>Gitsigns reset_buffer_index<CR>',
+        ['n <space><space>s'] = '<cmd>Gitsigns stage_hunk<CR>',
+        ['n <space><space>S'] = '<cmd>Gitsigns stage_buffer<CR>',
+        ['n <space><space>u'] = '<cmd>Gitsigns undo_stage_hunk<CR>',
+
+        ['n <space><space>r'] = '<cmd>Gitsigns reset_hunk<CR>',
+        ['n <space><space>R'] = '<cmd>Gitsigns reset_buffer<CR>',
+
+        ['n <space><space>p'] = '<cmd>Gitsigns preview_hunk<CR>',
+        ['n <space><space>b'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
+
+        ['n <space><space>U'] = '<cmd>Gitsigns reset_buffer_index<CR>',
 
         -- Text objects
         ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',

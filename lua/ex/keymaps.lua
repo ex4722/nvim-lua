@@ -51,15 +51,11 @@ k("n", ";r", "<cmd>Telescope live_grep<cr>", conf)
 k("n", "\\\\", "<cmd>Telescope buffers<cr>", conf)
 k("n", ";;", "<cmd>Telescope help_tags<cr>", conf)
 k("n", "gf", "<cmd>Telescope lsp_references<cr>", conf)
-k("n", ";;", "<cmd>Telescope help_tags<cr>", conf)
-
 
 
 -- Undo Tree 
 k("n", "<A-u>", ":UndotreeToggle<CR>", conf)
 
--- Fugative 
-k("n", "<leader>gs", ":G<CR>", conf)
 
 -- Moving buffers
 k("n", "<leader>1", "", conf)
@@ -70,19 +66,26 @@ k("n" , "<C-b>", ":w<CR>:exec '!tmux new-window ipython3 -i' shellescape(@%, 1)<
 k("n", "<C-e>", ":NvimTreeToggle<CR>", conf)
 
 -- HARPOOOON
-k("n", "<space>a", ":lua require('harpoon.mark').add_file()<CR>", conf)
 k("n", "H", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", conf)
-
+k("n", "<space>a", ":lua require('harpoon.mark').add_file()<CR>", conf)
 k("n", "<space>f", ":lua require('harpoon.ui').nav_file(1)<CR>", conf)
 k("n", "<space>d", ":lua require('harpoon.ui').nav_file(2)<CR>", conf)
 k("n", "<space>s", ":lua require('harpoon.ui').nav_file(3)<CR>", conf)
--- k("n", "H", ":Telescope harpoon marks<CR>", conf)
--- k("n", "<tab>", ":lua require('harpoon.ui').nav_next()<CR>", conf)
 
+-- Tabs
 k("n", "<tab>", ":TablineBufferNext<CR>", conf)
 k("n", "<S-tab>", ":tabnex<CR>", conf)
 
 
+-- DAP
+k("n", "<F5>", ":lua require'dap'.continue()<CR>", conf)
+k("n", "<F1>", ":lua require'dap'.step_into()<CR>", conf)
+k("n", "<F2>", ":lua require'dap'.step_over()<CR>", conf)
+k("n", "<F3>", ":lua require'dap'.step_out()<CR>", conf)
+k("n", "<space>b", ":lua require'dap'.toggle_breakpoint()<CR>", conf)
+k("n", "<space>B", ":lua require'dap'.toggle_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", conf)
 
 
-
+-- Fugative 
+k("n", "<space>g", ":Neogit<CR>", conf)
+k("n", "<leader>g", ":G<CR>", conf)

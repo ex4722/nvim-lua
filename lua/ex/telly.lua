@@ -1,5 +1,6 @@
 local actions = require "telescope.actions"
 local telescope = require('telescope')
+
 telescope.load_extension('media_files')
 telescope.load_extension('harpoon')
 telescope.load_extension('git_worktree')

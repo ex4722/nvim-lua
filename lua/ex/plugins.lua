@@ -86,6 +86,7 @@ return packer.startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'ThePrimeagen/git-worktree.nvim'
     use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' } }
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     -- Telly 
     use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
@@ -99,19 +100,25 @@ return packer.startup(function(use)
 
 
     -- Pretty 
+    use 'kyazdani42/nvim-web-devicons'
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = false} }
-    use 'ryanoasis/vim-devicons'
     use 'kdheepak/tabline.nvim'
-    use {'nvim-orgmode/orgmode', config = function()
-        require('orgmode').setup{}
-    end }
+
     use {
         "folke/which-key.nvim",
     }
     use 'ray-x/lsp_signature.nvim'
 
-    -- use { 'kyazdani42/nvim-tree.lua', commit = "2dfed89af7724f9e71d2fdbe3cde791a93e9b9e0"}
     use { 'kyazdani42/nvim-tree.lua',}
+
+    use 'mfussenegger/nvim-dap'
+    use 'mfussenegger/nvim-dap-python'
+    use 'rcarriga/nvim-dap-ui'
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'nvim-telescope/telescope-dap.nvim'
+
+
+
     -- FUNNNN
     if PACKER_BOOTSTRAP then
         require("packer").sync()
