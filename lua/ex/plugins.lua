@@ -44,12 +44,22 @@ return packer.startup(function(use)
     use "wbthomason/packer.nvim"
     use "lifepillar/vim-solarized8"
 
-    -- Code Shortcuts
+    -- Build system
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
+
+
+    -- Quality of Life
     use 'mbbill/undotree'
     use 'tpope/vim-commentary'
-    -- use 'tpope/vim-surround'
     use "machakann/vim-sandwich"
+    -- use 'tpope/vim-surround'
+    use 'windwp/nvim-autopairs'
+    -- use 'jiangmiao/auto-pairs'
+    -- use 'rstacruz/vim-closer'
+    use 'mattn/emmet-vim'
+    use 'p00f/nvim-ts-rainbow'
+    use { "folke/which-key.nvim", }
+    use { 'kyazdani42/nvim-tree.lua',}
 
     -- AutoComplete and Snips
     use "hrsh7th/nvim-cmp"
@@ -62,11 +72,7 @@ return packer.startup(function(use)
     use 'rafamadriz/friendly-snippets'
 
 
-    use 'windwp/nvim-autopairs'
-    -- use 'jiangmiao/auto-pairs'
-    -- use 'rstacruz/vim-closer'
 
-    use 'mattn/emmet-vim'
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -74,6 +80,7 @@ return packer.startup(function(use)
     use 'tami5/lspsaga.nvim'
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+    use 'ray-x/lsp_signature.nvim'
 
     -- Formatters 
     -- use {'averms/black-nvim', run = ':UpdateRemotePlugins'  } 
@@ -95,7 +102,6 @@ return packer.startup(function(use)
 
     -- Trees
     use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate",}
-    use 'p00f/nvim-ts-rainbow'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 
@@ -104,20 +110,14 @@ return packer.startup(function(use)
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = false} }
     use 'kdheepak/tabline.nvim'
 
-    use {
-        "folke/which-key.nvim",
-    }
-    use 'ray-x/lsp_signature.nvim'
 
-    use { 'kyazdani42/nvim-tree.lua',}
 
+    -- Dab on dem
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'nvim-telescope/telescope-dap.nvim'
-
-
 
     -- FUNNNN
     if PACKER_BOOTSTRAP then
