@@ -48,6 +48,8 @@ return packer.startup(function(use)
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 
 
+    use "norcalli/nvim-colorizer.lua"
+
     -- Quality of Life
     use 'mbbill/undotree'
     use 'tpope/vim-commentary'
@@ -124,4 +126,3 @@ return packer.startup(function(use)
         require("packer").sync()
     end
 end)
-

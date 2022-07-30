@@ -19,7 +19,7 @@ local options = {
 
 
    undofile = true,
-   undodir = "/home/ex4722/.config/nvim/undodir",
+   undodir = "/home/ex/.config/nvim/undodir",
     signcolumn = "yes",
    
     ignorecase = true,
