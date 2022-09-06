@@ -79,10 +79,12 @@ return packer.startup(function(use)
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
+    use { "williamboman/mason.nvim" }
     use 'tami5/lspsaga.nvim'
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'jose-elias-alvarez/nvim-lsp-ts-utils'
     use 'ray-x/lsp_signature.nvim'
+    use 'nvim-treesitter/nvim-treesitter-context'
 
     -- Formatters 
     -- use {'averms/black-nvim', run = ':UpdateRemotePlugins'  } 
@@ -113,6 +115,9 @@ return packer.startup(function(use)
     use 'kdheepak/tabline.nvim'
 
 
+    use "mong8se/actually.nvim"
+
+
 
     -- Dab on dem
     use 'mfussenegger/nvim-dap'
@@ -120,6 +125,7 @@ return packer.startup(function(use)
     use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'nvim-telescope/telescope-dap.nvim'
+
 
     -- FUNNNN
     if PACKER_BOOTSTRAP then

@@ -107,6 +107,17 @@ M.on_attach = function(client, bufnr)
         client.server_capabilities.document_formatting = false
     end
     lsp_keymaps(bufnr)
+
+
+    require("null-ls").setup({
+        sources = {
+            require("null-ls").builtins.formatting.stylua,
+            require("null-ls").builtins.diagnostics.eslint,
+            require("null-ls").builtins.completion.spell,
+            require("null-ls").builtins.formatting.black,
+        },
+    })
+
     require "lsp_signature".on_attach({
         hi_parameter = "LspSagaFinderSelection",
         floating_window_off_x = -10,

@@ -20,3 +20,7 @@ installer.on_server_ready(function(server)
 
     server:setup(opts)
 end)
+
+require("mason").setup()
+-- require'lspconfig'.jedi_language_server.setup{}
+-- require'lspconfig'.pyright.setup{}

@@ -24,4 +24,5 @@ require "ex.nvim_tree"
 -- require "ex.which"
 require "ex.neogit"
 require "ex.debugger"
--- Heres a change
+
+require "ex.context"

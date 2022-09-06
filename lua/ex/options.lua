@@ -27,6 +27,7 @@ local options = {
     incsearch = true,
     expandtab = true,
     guicursor = '',
+    mouse = 'c',
     -- cmdheight=0,
 
 }

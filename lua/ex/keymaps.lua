@@ -59,7 +59,7 @@ k("n", "<A-u>", ":UndotreeToggle<CR>", conf)
 
 -- Moving buffers
 k("n", "<leader>1", "", conf)
-k("n" , "<C-b>", ":w<CR>:exec '!tmux new-window ipython3 -i' shellescape(@%, 1)<CR>-", conf)
+k("n" , "<C-b>", ":w<CR>:exec '!tmux new-window ptipython -i' shellescape(@%, 1)<CR>-", conf)
 
 
 -- NvimTreeee
