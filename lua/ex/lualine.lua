@@ -1,33 +1,47 @@
-local status, lualine = pcall(require, "lualine")
-if (not status) then return end
-
-lualine.setup {
-    options = {
-        icons_enabled = true,
-        theme = 'solarized_dark',
-        component_separators = {'', ''},
-        disabled_filetypes = {}
-    },
-    sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch'},
-        lualine_c = {'filename'},
-        lualine_x = {
-    { 'diagnostics', sources = {"nvim_diagnostic"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
-        'encoding',
-        'filetype'
-    },
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
-    },
+require("lualine").setup({
+    extensions = {},
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {}
     },
-    tabline = {},
-    extensions = {'fugitive'}
-}
+    inactive_winbar = {},
+    options = {
+        always_divide_middle = true,
+        component_separators = {
+            left = "",
+            right = ""
+        },
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {}
+        },
+        globalstatus = false,
+        icons_enabled = true,
+        ignore_focus = {},
+        refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000
+        },
+        section_separators = {
+            left = "",
+            right = ""
+        },
+        theme = "solarized"
+    },
+    sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch"},
+        lualine_c = { "filename" },
+        lualine_x = { "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" }
+    },
+    tabline = {
+    },
+    winbar= {},
+})

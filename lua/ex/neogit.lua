@@ -1,7 +1,8 @@
-local neogit = require('neogit')
+local neogit = require("neogit")
 
 neogit.setup {
-    integrations = {
-        diffview = true
-    },
+  integrations = {
+    diffview = true
+  },
 }
+
