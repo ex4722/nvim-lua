@@ -67,7 +67,7 @@ k("n", ";r", "<cmd>Rg<cr>", conf)
 k("n", "<A-u>", ":UndotreeToggle<CR>", conf)
 
 
-k("n" , "<C-b>", ":w<CR>:exec '!tmux new-window ptipython -i' shellescape(@%, 1)<CR>-", conf)
+k("n" , "<C-b>", ":w<CR>:exec '!tmux new-window ipython -i' shellescape(@%, 1)<CR>-", conf)
 
 
 -- NvimTreeee
